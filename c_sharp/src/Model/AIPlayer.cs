@@ -4,8 +4,6 @@
 /// </summary>
 /// 
 using SwinGameSDK;
-using System;
-using System.Collections;
 
 namespace Battleship
 {
@@ -122,14 +120,13 @@ namespace Battleship
             do //keep hitting until a miss
             {
                 Delay();
-                Console.WriteLine("in attack");
+
                 GenerateCoords(ref row, ref column); //generate coordinates for shot
-                Console.WriteLine("row=" +row+", col= "+column);
                 result = _game.Shoot(row, column); //take shot
-                Console.WriteLine("shoot");
                 ProcessShot(row, column, result);
-                Console.WriteLine("process");
-            } while (result.Value != ResultOfAttack.Miss && result.Value != ResultOfAttack.GameOver && !SwinGame.WindowCloseRequested());
+            } 
+
+            while (result.Value == ResultOfAttack.Miss && result.Value != ResultOfAttack.GameOver && !SwinGame.WindowCloseRequested());
 
             return result;
         }

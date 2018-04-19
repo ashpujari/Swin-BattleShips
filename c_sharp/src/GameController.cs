@@ -134,20 +134,14 @@ namespace Battleship
 
         private static void PlayHitSequence(int row, int column, bool showAnimation)
         {
-            Console.WriteLine("in playHitSequence");
             if (showAnimation)
             {
-                Console.WriteLine("playHitSequence show animation");
                 UtilityFunctions.AddExplosion(row, column);
-                Console.WriteLine("playHitSequence finish animation");
             }
-            Console.WriteLine("playHitSequence play sound");
+
             Audio.PlaySoundEffect(GameResources.GameSound("Hit"));
 
-            if (showAnimation) {
-                Console.WriteLine("playHitSequence draw animation");
-                UtilityFunctions.DrawAnimationSequence();
-            }
+            UtilityFunctions.DrawAnimationSequence();
         }
 
         private static void PlayMissSequence(int row, int column, bool showAnimation)
@@ -186,9 +180,7 @@ namespace Battleship
             switch (result.Value)
             {
                 case ResultOfAttack.Destroyed:
-                    Console.WriteLine("Ship sunk");
                     PlayHitSequence(result.Row, result.Column, isHuman);
-                    Console.WriteLine("PlayHitSequenceComplete");
                     Audio.PlaySoundEffect(GameResources.GameSound("Sink"));
 
                     break;

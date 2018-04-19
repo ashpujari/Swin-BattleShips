@@ -11,9 +11,15 @@ namespace Battleship
     public interface ISeaGrid
     {
 
-        int Width { get; }
+        int Width 
+        { 
+            get; 
+        }
 
-        int Height { get; }
+        int Height 
+        { 
+            get; 
+        }
 
         /// <summary>
         /// Indicates that the grid has changed.

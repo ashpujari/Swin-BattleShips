@@ -306,7 +306,9 @@ namespace Battleship
                     {
                         placementSuccessful = false;
                     }
-                } while (!placementSuccessful);
+                } 
+
+                while (!placementSuccessful);
             }
         }
     }
